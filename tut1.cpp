@@ -7,7 +7,6 @@
 #include <llvm/IR/IRBuilder.h>
 #include <llvm/Support/SourceMgr.h>
 #include <llvm/IR/IRPrintingPasses.h>
-/*#include <llvm/Support/Process.h> */
 #include <llvm/Support/raw_ostream.h>
 
 using namespace llvm;
@@ -59,8 +58,5 @@ Module* makeLLVMModule() {
 
     builder.CreateRet(tmp2);
 
-    outs() << "-----";
-    outs() << *tmp;
-    outs() << "------\n";
     return mod;
 }
