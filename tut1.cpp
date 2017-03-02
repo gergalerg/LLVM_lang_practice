@@ -17,7 +17,8 @@ Module* makeLLVMModule();
 int main(int argc, char const *argv[])
 {
     Module* Mod = makeLLVMModule();
-    outs() << "Hello World!\n";
+    // To print to stdout
+    verifyModule(*Mod);
 
     PassManager PM;
     PM.add(createPrintModulePass(outs()));
@@ -55,7 +56,11 @@ Module* makeLLVMModule() {
     Value* tmp = builder.CreateBinOp(Instruction::Mul, x, y, "tmp");
     Value* tmp2 = builder.CreateBinOp(Instruction::Add, tmp, z, "tmp2");
 
+
     builder.CreateRet(tmp2);
 
+    outs() << "-----";
+    outs() << *tmp;
+    outs() << "------\n";
     return mod;
 }
